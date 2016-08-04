@@ -3,6 +3,7 @@ package com.example;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.PathParam;
@@ -27,7 +28,7 @@ import com.example.NotificationMgr;
  */
 @Path("/domresource/{versionId}")
 public class MyResource {
-
+    
     /**
      * Method handling HTTP GET requests. The returned object will be sent
      * to the client as "text/plain" media type.
@@ -215,9 +216,7 @@ public class MyResource {
         GenericEntity< MyBeanParam > entity;
         entity  = new GenericEntity<MyBeanParam>( beanParam ) { };
         
-        ResponseBuilder builder = Response.ok(entity);
-        
-        
+        ResponseBuilder builder = Response.ok(entity).header("Access-Control-Allow-Origin", "*");
         return( builder.build() );
         
     }
