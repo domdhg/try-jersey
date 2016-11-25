@@ -1,0 +1,2 @@
+This is just a test of Git commands.
+And more modified.
